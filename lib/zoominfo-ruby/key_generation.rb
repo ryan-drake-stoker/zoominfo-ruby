@@ -5,14 +5,16 @@
 # Today's day of the month (not padded with zero)
 # Today's month (not padded with zero)
 # Today's year (4 digit)
-module KeyGeneration
-  def generate_key(search_terms, password)
-    search_term_prefaces = ""
-    date_formatted = Time.now.strftime("%-d%-m%-Y")
-    search_terms.each do |search_term|
-      search_term_prefaces << search_term[0..1]
-    end
+module ZoomInfo
+  module KeyGeneration
+    def generate_key(search_terms, password)
+      search_term_prefaces = ""
+      date_formatted = Time.now.strftime("%-d%-m%-Y")
+      search_terms.each do |search_term|
+        search_term_prefaces << search_term[0..1]
+      end
 
-    return Digest::MD5.hexdigest(search_term_prefaces + password + date_formatted)
+      return Digest::MD5.hexdigest(search_term_prefaces + password + date_formatted)
+    end
   end
 end

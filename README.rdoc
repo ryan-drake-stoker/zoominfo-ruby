@@ -1,9 +1,18 @@
 = zoominfo-ruby
 
-Description goes here.
+API client to Zoominfo's 'new API'.
+
+http://www.zoominfo.com/business/zoominfo-new-api-documentation
+
+== Usage
+
+  client = ZoomInfo::Company.new('Example.client','password323')
+
+  client.search_by_company_name('exitround')
+  => {"CompanyRecord"=>{"CompanyID"=>"356754607", "ZoomCompanyUrl"=>"http://www.zoominfo.com/#!search/profile/company?companyId=356754607&targetid=profile", "CompanyDetailXmlUrl"=>"http://partnerapi.zoominfo.com/partnerapi/company/detail?query_type=company_detail&CompanyID=356754607&pc=Exitround.client&key=4f75abc1fbd1a5e8f2206c77c4932e4e", "CompanyName"=>"Exitround Inc", "CompanyTicker"=>nil, "Website"=>"www.exitround.com", "CompanyAddress"=>{"Street"=>"1625 Post Street", "City"=>"San Francisco", "State"=>"California", "Zip"=>"94115", "CountryCode"=>"United States"}, "CompanyDescription"=>"Exitround is a tool for you, the corporate development buyer, to find the highest quality teams that fit your strategic requirements. Other strategic roles that may be active on the marketplace may be CEOs, product leads, or recruiters. \n\nWhether you are looking for a top mobile design and UX team, or an expert team at scaling unstructured Cassandra data stores, and everything in between â€\" Exitround is the place. \n\nAll companies listed on Exitround have been stringently vetted and curated to ensure only the highest quality. You will see teams with the following qualifications:\n\n\nProfessionally angel/seed or venture backed, or have been through a top incubator. Teams of the highest caliber who are practiced at working together and have deep domain expertise. Individuals with real industry work experience at top-25 web companies who know how to build for massive scale. \n\nWhile the teamâ€™s anonymity is protected until the founder/CEO agrees to connect with you, meeting with a team is as simple as requesting an introduction. \n\nExitroundÂ earns a nominal fee, paid by you, the buyer, upon the successfulÂ completionÂ of an M&A transaction or talent-acquisition. ", "Revenue"=>"$1.4 Million", "Employees"=>"7", "Industry"=>["Search Engines & Internet Portals", "Media & Internet"]}}
 
 == Contributing to zoominfo-ruby
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
@@ -16,4 +25,3 @@ Description goes here.
 
 Copyright (c) 2014 Ian Morgan. See LICENSE.txt for
 further details.
-

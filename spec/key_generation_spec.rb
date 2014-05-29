@@ -8,7 +8,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 # Today's month (not padded with zero)
 # Today's year (4 digit)
 
-include KeyGeneration
+include ZoomInfo::KeyGeneration
 
 describe "API key generation" do
   before do

@@ -10,19 +10,11 @@ module ZoomInfo
       @api_key = api_key
       self.class.default_params({pc: partner_name, outputType: 'xml'})
     end
-  end
 
-  class Company < ZoomInfo::Base
-    def search(query = {})
+    def prepare_request(query)
       key = generate_key(query.values, @api_key)
       query.merge!(key: key)
-      self.class.get("/company/search", query: query).parsed_response['CompanySearchRequest']['CompanySearchResults']
-    end
-
-    def detail(query = {})
-      key = generate_key(query.values, @api_key)
-      query.merge!(key: key)
-      self.class.get("/company/detail", query: query).parsed_response
     end
   end
+
 end
