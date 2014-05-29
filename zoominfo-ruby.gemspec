@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ian Morgan"]
   s.date = "2014-05-29"
-  s.description = "API client to ZoomInfo"
-  s.email = "ianm280@gmail.com"
+  s.description = "TODO: longer description of your gem"
+  s.email = "ian@ruby-code.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -34,13 +34,14 @@ Gem::Specification.new do |s|
     "lib/zoominfo-ruby/person.rb",
     "spec/key_generation_spec.rb",
     "spec/spec_helper.rb",
-    "spec/zoominfo-ruby_spec.rb"
+    "spec/zoominfo-ruby_spec.rb",
+    "zoominfo-ruby.gemspec"
   ]
-  s.homepage = "http://github.com/exitround/zoominfo-ruby"
+  s.homepage = "http://github.com/seeingidog/zoominfo-ruby"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "2.1.11"
-  s.summary = "API client to ZoomInfo"
+  s.summary = "TODO: one-line summary of your gem"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
@@ -75,3 +76,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<timecop>, [">= 0"])
   end
 end
+
