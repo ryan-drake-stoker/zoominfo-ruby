@@ -15,11 +15,11 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "zoominfo-ruby"
-  gem.homepage = "http://github.com/seeingidog/zoominfo-ruby"
+  gem.homepage = "http://github.com/exitround/zoominfo-ruby"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "ian@ruby-code.com"
+  gem.summary = %Q{API client to ZoomInfo}
+  gem.description = %Q{API client to ZoomInfo's 'new API'}
+  gem.email = "ianm280@gmail.com"
   gem.authors = ["Ian Morgan"]
   # dependencies defined in Gemfile
 end
