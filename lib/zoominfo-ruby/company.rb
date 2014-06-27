@@ -18,5 +18,10 @@ module ZoomInfo
       detail('CompanyDomain' => domain_name)
     end
 
+    # Runs 2 API calls, first to people search, second to company detail
+    def company_by_email(email_address)
+      company_id = Person.new(@partner_name, @api_key)['PeopleSearchRequest']['PeopleSearchResults']['CurrentEmployment']['Company']['CompanyID']
+      detail('CompanyID' => company_id)
+    end
   end
 end

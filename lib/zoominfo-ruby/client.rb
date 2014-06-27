@@ -4,9 +4,10 @@ module ZoomInfo
     include HTTParty
     base_uri 'partnerapi.zoominfo.com/partnerapi/'
     format :xml
-    attr_accessor :api_key
+    attr_accessor :partner_name, :api_key
 
     def initialize(partner_name = nil, api_key = nil)
+      @partner_name = partner_name
       @api_key = api_key
       self.class.default_params({pc: partner_name, outputType: 'xml'})
     end
