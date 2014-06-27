@@ -9,5 +9,9 @@ module ZoomInfo
       query = prepare_request(query)
       self.class.get("/person/detail", query: query).parsed_response
     end
+
+    def search_by_email(email_address)
+      search('EmailAddress' => email_address)
+    end
   end
 end
