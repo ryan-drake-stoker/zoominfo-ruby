@@ -13,5 +13,9 @@ module ZoomInfo
     def search_by_email(email_address)
       search('EmailAddress' => email_address)
     end
+
+    def detail_by_id(person_id)
+      detail('PersonID' => person_id)
+    end
   end
 end
