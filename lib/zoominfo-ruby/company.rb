@@ -7,14 +7,17 @@ module ZoomInfo
 
     def detail(query = {})
       query = prepare_request(query)
-      self.class.get("/company/detail", query: query).parsed_response
+      res = self.class.get("/company/detail", query: query).parsed_response
+      res['CompanyDetailRequest']
     end
 
     def search_by_company_name(company_name)
-      search('CompanyName' => company_name)['CompanySearchRequest']['CompanySearchResults']
+      search('CompanyName' => company_name)
     end
 
     def detail_by_domain_name(domain_name)
+      #sanitize url
+      domain_name = domain_name.gsub(/http[s]*:\/\//, "").gsub(/\/\w*/, "")
       detail('CompanyDomain' => domain_name)
     end
 

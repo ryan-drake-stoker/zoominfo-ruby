@@ -14,8 +14,42 @@ module ZoomInfo
       search('EmailAddress' => email_address)
     end
 
-    def detail_by_id(person_id)
-      detail('PersonID' => person_id)
+    def search_by_name(firstName = nil, lastName = nil, middleInitial = nil)
+      query = {'firstName' => firstName, 'lastName' => lastName, 'middleInitial' => middleInitial, 'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
     end
+
+    def search_by_name_at_specific_company(zoom_company_id, firstName = nil, lastName = nil, middleInitial = nil)
+      query = {'firstName' => firstName, 'lastName' => lastName, 'middleInitial' => middleInitial,'companyId' => zoom_company_id , 'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
+    end
+
+    def search_by_title_at_specific_company(zoom_company_id, title)
+      query = {'personTitle' => title, 'companyId' => zoom_company_id,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
+    end
+
+    def search_by_name_at_company_called(company_name, firstName = nil, lastName = nil, middleInitial = nil)
+      query = {'firstName' => firstName, 'lastName' => lastName, 'middleInitial' => middleInitial,'companyName' => company_name ,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
+    end
+
+    def search_by_title_at_company_called(company_name, title)
+      query = {'personTitle' => title,'companyName' => company_name ,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
+    end
+
+    def get_first_hundred_for_company_called(company_name)
+      query = {'companyName' => company_name ,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
+    end
+
+    def get_first_hundred_for_specific_comapny(zoom_company_id)
+      query = {'companyId' => zoom_company_id ,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      search(query)
+    end
+
+    def detail_by_id(person_id)
+      detail('PersonID' => person_id)    end
   end
 end
