@@ -16,13 +16,13 @@ module ZoomInfo
 
 
 
-    def search_at_specific_company(company_id: nil, firstName: nil, lastName: nil, title: nil, sortBy: nil)
-      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyId' => company_id , 'companyPastOrPresent' => "1", 'SortBy' => sortBy}.delete_if{|k,v| v.nil?}
+    def search_at_specific_company(company_id: "", firstName: nil, lastName: nil, title: nil, sortBy: nil)
+      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyId' => company_id , 'companyPastOrPresent' => "1", 'SortBy' => sortBy}.delete_if{|k,v| v.nil? || v.strip.length < 1}
       search(query)
     end
 
-    def search_at_company_called(company_name: nil, firstName: nil, lastName: nil, title: nil, sortBy: nil)
-      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyName' => company_name ,  'companyPastOrPresent' => "1", 'SortBy' => sortBy}.delete_if{|k,v| v.nil?}
+    def search_at_company_called(company_name: "", firstName: nil, lastName: nil, title: nil, sortBy: nil)
+      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyName' => company_name ,  'companyPastOrPresent' => "1", 'SortBy' => sortBy}.delete_if{|k,v| v.nil? || v.strip.length < 1}
       search(query)
     end
 
