@@ -36,7 +36,7 @@ module ZoomInfo
       search(query)
     end
 
-    def get_first_hundred_for_specific_comapny(zoom_company_id)
+    def get_first_hundred_for_specific_company(zoom_company_id)
       query = {'companyId' => zoom_company_id ,  'companyPastOrPresent' => "1"}
       search(query)
     end
