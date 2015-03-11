@@ -1,6 +1,10 @@
 module ZoomInfo
   class Person < ZoomInfo::Base
     def search(query = {})
+      query = query.delete_if{|k,v| v.nil? || v.strip.length < 1}
+      if query['SortBy'] && query['SortBy'] == "LastName"
+          query['SortOrder'] = 'asc'
+      end
       query = prepare_request(query)
       self.class.get("/person/search", query: query).parsed_response
     end
@@ -17,23 +21,23 @@ module ZoomInfo
 
 
     def search_at_specific_company(company_id: "", firstName: nil, lastName: nil, title: nil, sortBy: nil)
-      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyId' => company_id , 'companyPastOrPresent' => "1", 'SortBy' => sortBy}.delete_if{|k,v| v.nil? || v.strip.length < 1}
+      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyId' => company_id , 'companyPastOrPresent' => "1", 'SortBy' => sortBy}
       search(query)
     end
 
     def search_at_company_called(company_name: "", firstName: nil, lastName: nil, title: nil, sortBy: nil)
-      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyName' => company_name ,  'companyPastOrPresent' => "1", 'SortBy' => sortBy}.delete_if{|k,v| v.nil? || v.strip.length < 1}
+      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyName' => company_name ,  'companyPastOrPresent' => "1", 'SortBy' => sortBy}
       search(query)
     end
 
 
     def get_first_hundred_for_company_called(company_name)
-      query = {'companyName' => company_name ,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      query = {'companyName' => company_name ,  'companyPastOrPresent' => "1"}
       search(query)
     end
 
     def get_first_hundred_for_specific_comapny(zoom_company_id)
-      query = {'companyId' => zoom_company_id ,  'companyPastOrPresent' => "1"}.delete_if{|k,v| v.nil?}
+      query = {'companyId' => zoom_company_id ,  'companyPastOrPresent' => "1"}
       search(query)
     end
 
