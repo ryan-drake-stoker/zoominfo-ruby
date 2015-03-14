@@ -6,7 +6,7 @@ module ZoomInfo
     format :xml
     attr_accessor :partner_name, :api_key
 
-    @@non_key_fields = ['SortBy', 'SortOrder']
+    @@non_key_fields = ['SortBy', 'SortOrder', 'outputFieldOptions']
 
     def initialize(partner_name = nil, api_key = nil)
       @partner_name = partner_name
