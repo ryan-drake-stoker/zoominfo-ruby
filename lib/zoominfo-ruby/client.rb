@@ -6,7 +6,7 @@ module ZoomInfo
     format :xml
     attr_accessor :partner_name, :api_key
 
-    @@non_key_fields = ['SortBy', 'SortOrder', 'outputFieldOptions']
+    @@non_key_fields = ['SortBy', 'SortOrder', 'outputFieldOptions', 'queryTypeOptions']
 
     def initialize(partner_name = nil, api_key = nil)
       @partner_name = partner_name
@@ -16,6 +16,7 @@ module ZoomInfo
 
     def prepare_request(query)
       key = generate_key(query.reject{|k,v| @@non_key_fields.include? k }.values, @api_key)
+      puts(key)
       query.merge!(key: key)
     end
   end
