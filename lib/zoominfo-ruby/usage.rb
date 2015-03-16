@@ -10,7 +10,7 @@ module ZoomInfo
 
 
     def current_usage
-      query = {'queryTypeOptions' => "company_search_query,person_detail"}
+      query = {'queryTypeOptions' => "people_search_query,person_detail,person_match,company_search_query,company_detail,company_match"}
       search(query)
     end
 
