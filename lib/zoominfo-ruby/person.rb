@@ -21,7 +21,7 @@ module ZoomInfo
 
 
     def search_at_specific_company(company_id: "", firstName: nil, lastName: nil, title: nil, sortBy: nil)
-      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyId' => company_id , 'IndustryClassification' => "2826,67338", 'companyPastOrPresent' => "1", 'SortBy' => sortBy, "outputFieldOptions" => "localAddress,companyAddress" }
+      query = {'firstName' => firstName, 'lastName' => lastName, 'personTitle' => title,  'companyId' => company_id , 'companyPastOrPresent' => "1", 'SortBy' => sortBy, "outputFieldOptions" => "localAddress,companyAddress" }
       search(query)
     end
 
@@ -37,7 +37,7 @@ module ZoomInfo
     end
 
     def get_first_hundred_for_specific_company(zoom_company_id)
-      query = {'companyId' => zoom_company_id , 'IndustryClassification' => "2826,67338",  'companyPastOrPresent' => "1", "outputFieldOptions" => "localAddress,companyAddress"}
+      query = {'companyId' => zoom_company_id , 'companyPastOrPresent' => "1", "outputFieldOptions" => "localAddress,companyAddress"}
       search(query)
     end
 
