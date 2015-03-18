@@ -15,7 +15,7 @@ module ZoomInfo
       search('CompanyName' => company_name)
     end
 
-    def search_by_company_name(company_name, industries)
+    def search_by_company_name_in_industries(company_name, industries)
       search('CompanyName' => company_name, 'IndustryClassification' => industries)
     end
 
