@@ -12,7 +12,11 @@ module ZoomInfo
     end
 
     def search_by_company_name(company_name)
-      search('CompanyName' => company_name, 'IndustryClassification' => "2826,67338")
+      search('CompanyName' => company_name)
+    end
+
+    def search_by_company_name(company_name, industries)
+      search('CompanyName' => company_name, 'IndustryClassification' => industries)
     end
 
     def detail_by_domain_name(domain_name)
