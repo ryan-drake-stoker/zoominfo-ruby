@@ -2,7 +2,7 @@ module ZoomInfo
   class Base
     include KeyGeneration
     include HTTParty
-    base_uri 'partnerapi.zoominfo.com/partnerapi/'
+    base_uri 'https://partnerapi.zoominfo.com/partnerapi/'
     format :xml
     attr_accessor :partner_name, :api_key
 
