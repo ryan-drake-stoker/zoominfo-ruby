@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "zoominfo-ruby"
-  s.version = "0.0.11"
+  s.version = "0.0.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ian Morgan"]
-  s.date = "2015-05-05"
+  s.date = "2015-05-06"
   s.description = "API client to ZoomInfo's 'new API'"
   s.email = "ianm280@gmail.com"
   s.extra_rdoc_files = [
