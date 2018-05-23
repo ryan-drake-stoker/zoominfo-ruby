@@ -14,7 +14,8 @@ module ZoomInfo
 
     def detail(query = {})
       query = prepare_request(query)
-      self.class.get("/person/detail", query: query).parsed_response
+      res = self.class.get("/person/detail", query: query).parsed_response
+      capatilizeHashKeys res
     end
 
     def search_by_email(email_address)
