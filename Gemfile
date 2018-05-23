@@ -9,5 +9,7 @@ group :development do
   gem "timecop"
 end
 
+gem 'ruby_dep', '~> 1.3.1'
 gem "httparty"
 gem "guard-rspec"
+gem "jwt"
