@@ -1,8 +1,11 @@
+require_relative 'upper_case_camelize'
 module ZoomInfo
   class Company < ZoomInfo::Base
+    include UpperCaseCamelize
+
     def search(query = {})
       query = prepare_request(query)
-      self.class.get("/company/search", query: query).parsed_response
+      capatilizeHashKeys self.class.get("/company/search", query: query).parsed_response
     end
 
     def detail(query = {})

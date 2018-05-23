@@ -1,12 +1,15 @@
+require_relative 'upper_case_camelize'
 module ZoomInfo
   class Person < ZoomInfo::Base
+    include UpperCaseCamelize
     def search(query = {})
       query = query.delete_if{|k,v| v.nil? || v.strip.length < 1}
       if query['SortBy'] && query['SortBy'] == "LastName"
           query['SortOrder'] = 'asc'
       end
       query = prepare_request(query)
-      self.class.get("/person/search", query: query).parsed_response
+      res = self.class.get("/person/search", query: query).parsed_response
+      capatilizeHashKeys res
     end
 
     def detail(query = {})
