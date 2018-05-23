@@ -46,7 +46,7 @@ module ZoomInfo
     end
 
     def detail_by_id(person_id)
-      detail('PersonID' => person_id, "outputFieldOptions" => "localAddress,companyAddress")
+      detail('PersonID' => person_id, "outputFieldOptions" => "localAddress")
     end
   end
 end
