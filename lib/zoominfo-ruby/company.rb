@@ -10,16 +10,16 @@ module ZoomInfo
 
     def detail(query = {})
       query = prepare_request(query)
-      res = self.class.get("/company/detail", query: query).parsed_response
-      res['CompanyDetailRequest']
+      res = capatilizeHashKeys self.class.get("/company/detail", query: query).parsed_response
+      res['CompanyDetailResponse']
     end
 
     def search_by_company_name(company_name)
-      search('CompanyName' => company_name)
+      search('companyName' => company_name)
     end
 
     def search_by_company_name_in_industries(company_name, industries)
-      search('CompanyName' => company_name, 'IndustryClassification' => industries)
+      search('companyName' => company_name, 'IndustryClassification' => industries)
     end
 
     def detail_by_domain_name(domain_name)
