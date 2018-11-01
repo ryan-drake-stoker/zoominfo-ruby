@@ -29,6 +29,7 @@ module ZoomInfo
 
 
     def get_token
+      puts 'Get fancy OAuth token'
       token = TokenCache.instance.retrieve_token(@partner_name)
       if token
         return token
